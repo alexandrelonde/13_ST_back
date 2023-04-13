@@ -2,13 +2,13 @@ import { Controller, Get } from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
 import { Usuario } from './usuario.entity';
 
-@Controller()
+@Controller('usuario')
 export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService) {}
 
-  @Get()
+  @Get('listar')
   async listar(): Promise<Usuario[]>{
-    return
+    return this.usuarioService.listar();
   }
 
 }

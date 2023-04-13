@@ -13,5 +13,4 @@ export class Usuario {
 
   @Column({ length: 255 })
   password: string;
-
 }

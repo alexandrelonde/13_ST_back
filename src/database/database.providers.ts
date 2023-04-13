@@ -14,10 +14,7 @@ export const databaseProviders = [
         entities: [
             __dirname + '/../**/*.entity{.ts,.js}',
         ],
-        // Perguntar mais a respeito do synchromnize: true
-        // O porque não enviar esse parâmetro como true para produção
-        // Sincroniza a criação da entity com a criação no banco de dados *****
-        synchronize: true,
+        synchronize: true, // Sincroniza a criação do banco de dados a partir da entity
       });
 
       return dataSource.initialize();
