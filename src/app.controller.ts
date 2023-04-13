@@ -13,8 +13,7 @@ export class AppController {
   // Criando uma nova rota - como é uma rota get também, terá que ter outro nome
   @Get('objeto')
   getObject(): any {
-    return this.appService.getObject();
-    
+    return this.appService.getObject(); 
   }
 }
 
