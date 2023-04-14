@@ -3,6 +3,7 @@ import { Repository } from 'typeorm';
 import { Usuario } from './usuario.entity';
 import { UsuarioCadastrarDto } from './dto/usuario.cadastrar.dto';
 import { ResultadoDto } from 'src/dto/resultado.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsuarioService {
@@ -19,19 +20,21 @@ export class UsuarioService {
     let usuario = new Usuario()
     usuario.nome = data.nome
     usuario.email = data.email
-    usuario.password = data.password
+    usuario.password = bcrypt.hashSync(data.password, 8)
+
     return this.usuarioRepository.save(usuario)
+
     .then((result) => {
-      return <ResultadoDto> {
+      return <ResultadoDto>{
         status: true,
         mensagem: "Usuario cadastrado com sucesso!"
       }
 
     })
     .catch((error) => {
-      return <ResultadoDto> {
+      return <ResultadoDto>{
         status: false,
-        mensagem: "Não foi possivel cadastrar o usuário."
+        mensagem: "Não foi possível cadastrar o usuário."
       }
     })  
   }
