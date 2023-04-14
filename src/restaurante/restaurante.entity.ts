@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, Unique } from 'typeorm';
+import { Prato } from 'src/prato/prato.entity';
+import { Entity, Column, PrimaryGeneratedColumn, Unique, OneToMany } from 'typeorm';
 
 @Entity()
 @Unique(['telefone']) // Tornar o telefone único na hora do cadastro de restaurante
@@ -14,4 +15,8 @@ export class Restaurante {
 
   @Column()
   endereco: string;
+
+  // Relacionamento com a tabela pratos
+  @OneToMany(() => Prato, (prato) => prato.restaurante)
+  pratos: Prato[];
 }

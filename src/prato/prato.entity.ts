@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Restaurante } from 'src/restaurante/restaurante.entity';
 
 @Entity()
 export class Prato {
@@ -13,4 +14,9 @@ export class Prato {
 
   @Column()
   preco: number;
+
+    // Relacionamento com a tabela restaurante
+    @ManyToOne(() => Restaurante, (restaurante) => restaurante.pratos)
+    restaurante: Restaurante;
+
 }
