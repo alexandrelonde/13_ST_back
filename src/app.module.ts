@@ -8,10 +8,10 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    UsuarioModule,
+    AuthModule, // Chama o UsuarioModule
     RestauranteModule,
     PratoModule,
-    AuthModule
+    
   ],
   controllers: [AppController],
   providers: [AppService],
