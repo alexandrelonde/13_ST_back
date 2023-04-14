@@ -4,12 +4,14 @@ import { AppService } from './app.service';
 import { UsuarioModule } from './usuario/usuario.module';
 import { RestauranteModule } from './restaurante/restaurante.module';
 import { PratoModule } from './prato/prato.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     UsuarioModule,
     RestauranteModule,
-    PratoModule
+    PratoModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

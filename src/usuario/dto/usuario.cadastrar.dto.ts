@@ -1,11 +1,9 @@
-import{IsString} from 'class-validator';
-export class UsuarioCadastrarDto {
-  @IsString()
+
+export interface UsuarioCadastrarDto {
+  
   nome: string;
   
-  @IsString()
   email: string;
 
-  @IsString()
   password: string;
 }
