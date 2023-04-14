@@ -1,6 +1,8 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
 import { Usuario } from './usuario.entity';
+import { UsuarioCadastrarDto } from './dto/usuario.cadastrar.dto';
+import { ResultadoDto } from 'src/dto/resultado.dto';
 
 @Controller('usuario')
 export class UsuarioController {
@@ -11,4 +13,8 @@ export class UsuarioController {
     return this.usuarioService.listar();
   }
 
+  @Post('cadastrar')
+  async cadastrar(@Body()data: UsuarioCadastrarDto): Promise<ResultadoDto>{
+    return this.usuarioService.cadastrar(data)
+  }
 }

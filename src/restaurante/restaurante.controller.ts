@@ -11,5 +11,4 @@ export class RestauranteController {
     return this.restauranteService.listar();
   }
 
-
 }

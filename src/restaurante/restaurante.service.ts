@@ -12,4 +12,5 @@ export class RestauranteService {
   async listar(): Promise<Restaurante[]> {
     return this.restauranteRepository.find();
   }
+
 }
