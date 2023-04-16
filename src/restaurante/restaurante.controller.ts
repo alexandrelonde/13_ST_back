@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { RestauranteService } from './restaurante.service';
 import { Restaurante } from './restaurante.entity';
 
@@ -9,6 +9,11 @@ export class RestauranteController {
   @Get('listar')
   async listar(): Promise<Restaurante[]>{
     return this.restauranteService.listar();
+  }
+
+  @Get(':id/pratos')
+  async listarRestauranteComPratos(@Param('id') id: number): Promise<Restaurante> {
+    return await this.restauranteService.listarRestauranteComPratos(id);
   }
 
 }

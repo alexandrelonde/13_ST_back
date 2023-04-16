@@ -13,4 +13,11 @@ export class RestauranteService {
     return this.restauranteRepository.find();
   }
 
+  async listarRestauranteComPratos(id: number): Promise<Restaurante> {
+    return await this.restauranteRepository
+    .createQueryBuilder('restaurante')
+    .leftJoinAndSelect('restaurante.pratos', 'pratos')
+    .where('restaurante.id = :id', { id: id })
+    .getOne();
+  }
 }
