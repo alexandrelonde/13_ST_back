@@ -1,4 +1,4 @@
-import { Prato } from 'src/prato/prato.entity';
+import { Prato } from 'src/prato/entities/prato.entity';
 import { Entity, Column, PrimaryGeneratedColumn, Unique, OneToMany } from 'typeorm';
 
 @Entity()

@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { Prato } from './prato.entity';
+import { Prato } from './entities/prato.entity';
 
 export const pratoProviders = [
   {
