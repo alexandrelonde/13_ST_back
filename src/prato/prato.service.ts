@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { Prato } from './prato.entity';
+import { Prato } from './entities/prato.entity';
 
 @Injectable()
 export class PratoService {

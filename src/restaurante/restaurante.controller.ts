@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { RestauranteService } from './restaurante.service';
-import { Restaurante } from './restaurante.entity';
+import { Restaurante } from './entities/restaurante.entity';
 
 @Controller('restaurante')
 export class RestauranteController {

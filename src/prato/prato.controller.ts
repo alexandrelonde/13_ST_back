@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { PratoService } from './prato.service';
-import { Prato } from './prato.entity';
+import { Prato } from './entities/prato.entity';
 
 @Controller('prato')
 export class PratoController {
