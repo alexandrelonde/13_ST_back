@@ -16,7 +16,7 @@ export class UsuarioController {
     return this.usuarioService.listar();
   }
 
-  // Endpoint publico - verificar o uso de jwt ***
+  // Endpoint publico - verificar o uso de jwt *****
   @Post('cadastrar')
   async cadastrar(@Body()data: UsuarioCadastrarDto): Promise<ResultadoDto>{
     return this.usuarioService.cadastrar(data)
