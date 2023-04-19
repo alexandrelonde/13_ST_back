@@ -1,7 +1,9 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { RestauranteService } from './restaurante.service';
 import { Restaurante } from './entities/restaurante.entity';
 import { SearchDto } from './dto/procuraRestaurante.dto';
+import { RestauranteCadastrarDto } from './dto/restaurante.cadastrar.dto';
+import { ResultadoDto } from 'src/dto/resultado.dto';
 
 @Controller('restaurante')
 export class RestauranteController {
@@ -20,6 +22,11 @@ export class RestauranteController {
   @Get('/busca')
   async search(@Query() searchDto: SearchDto): Promise<Restaurante[]> {
     return this.restauranteService.search(searchDto);
+  }
+
+  @Post('cadastrar')
+  async cadastrar(@Body()data: RestauranteCadastrarDto): Promise<ResultadoDto>{
+    return this.restauranteService.cadastrar(data)
   }
 
 }

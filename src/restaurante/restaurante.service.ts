@@ -2,6 +2,9 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { Restaurante } from './entities/restaurante.entity';
 import { SearchDto } from './dto/procuraRestaurante.dto';
+import { RestauranteCadastrarDto } from './dto/restaurante.cadastrar.dto';
+import { ResultadoDto } from 'src/dto/resultado.dto';
+import { error } from 'console';
 
 @Injectable()
 export class RestauranteService {
@@ -39,6 +42,41 @@ export class RestauranteService {
     } catch (error) {
       throw new Error('Ocorreu um erro ao realizar a busca.');
     }
+  }
+
+  async cadastrar(data: RestauranteCadastrarDto): Promise<ResultadoDto>{
+    let restaurante = new Restaurante()
+    restaurante.nome = data.nome
+    restaurante.telefone = data.telefone
+    restaurante.endereco = data.endereco
+
+    // Verificar se já existe um restaurante com o telefone cadastrado
+    const restauranteExistente = await this.restauranteRepository
+    .createQueryBuilder("restaurante")
+    .where("restaurante.telefone = :telefone", { telefone: data.telefone })
+    .getOne();
+
+    // Caso já exista um restaurante com o mesmo telefone, retorna uma mensagem de erro
+    if (restauranteExistente) {
+      return <ResultadoDto> {
+        status: false,
+        mensagem: "Já existe um restaurante cadastrado com esse telefone."
+      }
+    }
+
+    return this.restauranteRepository.save(restaurante)
+    .then((result) => {
+      return <ResultadoDto> {
+        status: true,
+        mensagem: "Restaurante cadastrado com sucesso!"
+      }
+    })
+    .catch((error) => {
+      return <ResultadoDto> {
+        status: false,
+        mensagem: "Houve um erro ao cadastrar o restaurante."
+      }
+    })
   }
 }
 
