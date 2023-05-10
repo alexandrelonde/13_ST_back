@@ -1,3 +1,4 @@
+
 import { Body, Controller, Get, Param, Post, Query, UseGuards } from "@nestjs/common";
 import { RestauranteService } from './restaurante.service';
 import { Restaurante } from './entities/restaurante.entity';
@@ -6,6 +7,7 @@ import { RestauranteCadastrarDto } from './dto/restaurante.cadastrar.dto';
 import { ResultadoDto } from 'src/dto/resultado.dto';
 import { AuthGuard } from "@nestjs/passport";
 import { JwtAuthGuard } from "src/auth/jwt-auth.guard";
+
 
 @Controller('restaurante')
 export class RestauranteController {
@@ -33,5 +35,5 @@ export class RestauranteController {
   async cadastrar(@Body()data: RestauranteCadastrarDto): Promise<ResultadoDto>{
     return this.restauranteService.cadastrar(data)
   }
-
 }
+
