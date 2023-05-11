@@ -1,3 +1,6 @@
+import { IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
+
 export class SearchDto {
-    term: string;
-  }
+  @IsString()
+  term: string;
+}

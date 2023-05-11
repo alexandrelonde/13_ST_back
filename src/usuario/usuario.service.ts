@@ -12,15 +12,11 @@ export class UsuarioService {
     private usuarioRepository: Repository<Usuario>,
   ) {}
 
-  async listar(): Promise<Usuario[]> {
-    return this.usuarioRepository.find();
-  }
-
-  async cadastrar(data: UsuarioCadastrarDto): Promise<ResultadoDto>{
-    let usuario = new Usuario()
-    usuario.nome = data.nome
-    usuario.email = data.email
-    usuario.password = bcrypt.hashSync(data.password, 8)
+  async cadastrar(data: UsuarioCadastrarDto): Promise<ResultadoDto> {
+    let usuario = new Usuario();
+    usuario.nome = data.nome;
+    usuario.email = data.email;
+    usuario.password = bcrypt.hashSync(data.password, 8);
 
     return this.usuarioRepository.save(usuario)
 
