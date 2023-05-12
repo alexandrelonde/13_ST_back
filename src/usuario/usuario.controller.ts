@@ -13,15 +13,9 @@ export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService,
     private authService: AuthService) {}
 
-  // ********************************************************
-  @Get('listar')
-  async listar(): Promise<Usuario[]>{
-    return this.usuarioService.listar();
-  }
-
   @Post('cadastrar')
-  async cadastrar(@Body()data: UsuarioCadastrarDto): Promise<ResultadoDto>{
-    return this.usuarioService.cadastrar(data)
+  async cadastrar(@Body() data: UsuarioCadastrarDto): Promise<ResultadoDto> {
+    return this.usuarioService.cadastrar(data);
   }
 
   @UseGuards(AuthGuard('local')) // ==========> Guardião para o login 

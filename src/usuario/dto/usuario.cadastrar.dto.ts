@@ -1,9 +1,15 @@
+import { IsEmail, IsNotEmpty, IsString} from 'class-validator';
 
-export interface UsuarioCadastrarDto {
-  
+export class UsuarioCadastrarDto {
+  @IsNotEmpty()
+  @IsString()
   nome: string;
-  
+
+  @IsEmail()
+  @IsString()
   email: string;
 
+  @IsNotEmpty()
+  @IsString()
   password: string;
 }
