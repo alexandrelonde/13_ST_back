@@ -58,6 +58,90 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Configuração Adicional
+Para garantir que o backend funcione corretamente, siga os passos abaixo:
+
+### Pré-requisitos
+Node.js e npm
+MySQL
+
+### Passos para Configuração
+**1 - Clonar o Repositório** <br>
+Primeiro, você precisa clonar o repositório do GitHub e entrar no diretório do projeto.
+
+```bash
+# Cloando o repositório
+$ git clone https://github.com/alexandrelonde/13_ST_back.git
+
+# Entrando na pasta do projeto
+$ cd 13_ST_back
+```
+
+<br>
+
+**2 - Configurar Variáveis de Ambiente** <br>
+Crie um arquivo .env na raiz do projeto com as seguintes informações. Substitua sua_senha_do_mysql pela sua senha do MySQL:
+
+```plaintext
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=sua_senha_do_mysql
+DB_DATABASE=sabortech
+```
+
+<br>
+
+**3 - Criar o Banco de Dados** <br>
+Acesse o MySQL e crie o banco de dados sabortech:
+
+```bash
+# Acessando o MySQL
+$ mysql -u root -p
+```
+Depois de inserir a senha, no prompt do MySQL, execute:
+
+```sql
+CREATE DATABASE sabortech;
+```
+
+<br>
+
+**4 - Criar Usuário no Banco de Dados** <br>
+Crie um usuário no banco de dados com um nome, e-mail e password.
+
+
+<br>
+
+**5 - Instalar Dependências** <br>
+Instale todas as dependências do projeto:
+
+```bash
+$ npm install
+```
+
+<br>
+
+**6 - Rodar o Projeto** <br>
+Inicie o servidor de desenvolvimento:
+
+```bash
+$ npm run start:dev
+```
+
+
+## Notas Adicionais
+* Certifique-se de que o MySQL está rodando: Verifique se o MySQL está em execução no seu sistema.
+* Permissões de Acesso: Certifique-se de que você tem as permissões necessárias para criar e acessar o banco de dados **sabortech**.
+* Configuração do **.gitignore**: O arquivo .env foi adicionado ao .gitignore para garantir que ele não seja enviado ao repositório. Se você precisar ajustar as variáveis de ambiente, faça isso diretamente no arquivo .env localmente.
+
+
+## Problemas Comuns
+* Erro de Conexão ao Banco de Dados: <br> Se você encontrar erros de conexão, verifique as credenciais e se o banco de dados está em execução.
+* Dependências não Instaladas: <br> Se houver erros ao iniciar o projeto, certifique-se de que todas as dependências foram instaladas corretamente com npm install.
+* Autenticação e Acesso: <br> Para acessar a aplicação, você precisa criar um usuário manualmente no banco de dados. Utilize as credenciais criadas para fazer login e obter um token de acesso que liberará a aplicação.
+
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
