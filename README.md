@@ -108,7 +108,19 @@ CREATE DATABASE sabortech;
 <br>
 
 **4 - Criar Usuário no Banco de Dados** <br>
-Crie um usuário no banco de dados com um nome, e-mail e password.
+Para criar um novo usuário no banco de dados, fazer uma requisição POST para a 
+rota de acordo com a imagem abaixo (Postman):
+
+![cadastrar_usuario](https://github.com/user-attachments/assets/57a96c39-933e-492f-b5ee-8d86cf7cb7ee)
+
+Observação: os dados não precisam ter os mesmos valores que os dados cadastrados na 
+imagem. O usuario pode ter os dados cadastrais de sua preferência. Caso tenha dado 
+certo, você receberá a seguinte mensagem:
+
+![usuario_cadastrado_com_sucesso](https://github.com/user-attachments/assets/e1e20a1f-02cb-480d-8f3f-ca173f0bee83) 
+
+Com isso, seu usuário terá permissão para acessar a aplicação após realizar o 
+login na tela do programa.
 
 
 <br>
